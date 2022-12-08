@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>CIFAR10 Image Classification</title>
+
+    <style>
+         *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+         }
+
+        :root{
+           --right-bg: #04837B;
+           --left-bg: #A7D7C5;
+        }
+
+        .main-container{
+            background-color: var(--right-bg);
+            width: 100vw;
+            height: 100vh;
+        }
+
+        section{
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            padding: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--left-bg);
+        }
+
+        .content{
+            position: relative;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;  
+        }
+
+        .dataset{
+           color: #04837B;
+           font-weight: 700;
+        }
+
+
+        .bg{
+            width: 50rem;
+            height: 30rem;
+        }
+
+        .content .textBox{
+            position: relative;
+            max-width: 600px;
+        }
+
+        .content .textBox h2{
+            color: #015051;
+            font-size: 5rem;
+            line-height: 1.4em;
+            font-weight: 500;
+        }
+
+        .content .textBox p{
+            color: #015051;
+            font-size: 2rem;
+            font-weight: 500;
+            padding-bottom: 2rem;
+        }
+
+        .content .imgBox{
+            width: 600px;
+            display: flex;
+            justify-content: space-between;
+            padding-right: 50px;
+            margin-top: 30px;
+        }
+
+        .content .imgBox img{
+            max-width: 500px;
+        }
+
+        .images{
+           width: 4rem;
+        }
+
+        .thumb{
+           position: absolute;
+           left: 50%;
+           bottom: 5%;
+           transform: translateX(-50%);
+           display: flex;
+        }
+
+        .thumb li{
+            list-style: none;
+            display: inline-block;
+            margin: 0 20px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .thumb li:hover{
+            transform: translateY(-15px);
+        }
+
+        .thumb li img{
+            max-width: 50px;
+        }
+
+        .circle{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--right-bg);
+            clip-path: circle(820px at right 800px);
+        }
+
+        .upload_btn{
+           position: absolute;
+           left: 28.5rem;
+           top: 25rem;
+        }
+
+        .proceed_btn{
+            position:absolute;
+            left: 28rem;
+            top: 32rem;
+        }
+
+        .uploadOR{
+            margin: 10px;
+            padding-left: 8rem;
+            font-size: 2rem;
+        }
+
+
+    </style>
+</head>
+<body>
+    <section>
+    <div class="circle"></div>
+    <div class="content">
+        <div class="textBox">
+            <h2>Welcome To <span class="dataset">CIFAR10</span> <br> Image Classification</h2>
+            <p>CIFAR10 Image Classification that can predict the image using Convolutional Neural Networks and give accurate results.</p>
+
+            <div class="upload-section">
+                <div class="upload-file">
+                    <form class = "file-form" action="/success" method="post", enctype="multipart/form-data">
+                        <input class="file-form-input" type="file" , name = "file"/>
+                        <div class="upload_btn">
+                            <button class="btn btn-success btn-lg" >Upload</button> 
+                        </div>
+                    </form>
+                </div>
+
+                <div class="uploadOR">
+                    <span>OR</span>
+                </div>
+
+                <div class="upload-link">
+                    <form class = "link-form" action="/success" method="post", enctype="multipart/form-data">
+                        <input class="link-form-input display-4" type="text" ,maxlength="1000" , name = "link" placeholder="Paste the image URL(not the site address)"/>
+                        <div class="proceed_btn">
+                            <button class="btn btn-success btn-lg" class="proceed-btn">Proceed</button> 
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="imgBox">
+            <img src="static/assets/img1.png" class="bg">
+        </div>
+    </div>
+    <ul class="thumb">
+        <li><img src="static/assets/frog.png" onclick="imgSlider('static/assets/frog.png'); changeCircleColor('#51771B')" class="images"></li>
+        <li><img src="static/assets/cat.png" onclick="imgSlider('static/assets/cat.png'); changeCircleColor('#23232C')"  class="images"></li>
+        <li><img src="static/assets/plane.png" onclick="imgSlider('static/assets/plane.png'); changeCircleColor('#9CAEBB')"  class="images"></li>
+        <li><img src="static/assets/shiba.png"  onclick="imgSlider('static/assets/shiba.png'); changeCircleColor('#BF8620')"  class="images"></li>
+        <li><img src="static/assets/deer.png"  onclick="imgSlider('static/assets/deer.png'); changeCircleColor('#B07630')"  class="images"></li>
+        <li><img src="static/assets/bird.png" onclick="imgSlider('static/assets/bird.png'); changeCircleColor('#038BC3')"  class="images"></li>
+        <li><img src="static/assets/car.png"  onclick="imgSlider('static/assets/car.png'); changeCircleColor('#1059BB')"  class="images"></li>
+    </ul>
+</section>
+
+   <script type="text/javascript">
+      function imgSlider(anything){
+        document.querySelector('.bg').src = anything; 
+      }
+
+      function changeCircleColor(color){ 
+         const circle = document.querySelector('.circle');
+         circle.style.background = color;
+      }
+   </script>
+</body>
+</html>
