@@ -1,5 +1,5 @@
 # ImageClassificationUsingCIFAR10
-CIFAR10 Image Classification that can predict the image using Convolutional Neural Networks and give accurate results.
+CIFAR10 Image Classification that can predict the image using Convolutional Neural Networks and give accurate results. A Convolutional Neural Network is a kind of network architecture for deep learning algorithms and is specifically used for image recognition and tasks that involve the processing of pixel data.
 
 ## HomePage
 ![Screenshot (89)](https://user-images.githubusercontent.com/80078725/206829927-43c21cd3-0d1c-4243-bf69-26d5ddeedca9.png)
