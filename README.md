@@ -5,7 +5,7 @@ CIFAR10 Image Classification that can predict the image using Convolutional Neur
 ![Screenshot (89)](https://user-images.githubusercontent.com/80078725/206829927-43c21cd3-0d1c-4243-bf69-26d5ddeedca9.png)
 
 ## ResultPage
-![Screenshot (90)](https://user-images.githubusercontent.com/80078725/206829941-fd72cc2d-4885-45c8-be6b-26f1937784a9.png)
+![FrogImg](https://user-images.githubusercontent.com/80078725/208595318-5caacf6e-b5fc-4cc6-96e2-bf212cf8c3d9.png)
 
 
 # Technologies Used
